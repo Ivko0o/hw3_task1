@@ -3,6 +3,7 @@
 
 int** Input(int& n, int& m);
 void Print(int** array, int n, int m);
+void Transform(int** array, int n, int m);
 
 using namespace std;
 
@@ -12,7 +13,9 @@ int main()
     int m;
 
    int** array = Input(n, m);
+   Transform(array, n, m);
    Print(array, n, m);
+  
 }
 
 //Creates an 2D array and takes the elements of it
@@ -44,7 +47,38 @@ int** Input(int& n, int& m) {
     return array;
 }
 
-void Transform() {
+void Transform(int** array, int n, int m) {
+
+        int d = 0;
+
+        cout << "Enter a number: ";
+        cin >> d;
+        
+        int d1 = 0;                     // Needed for finding the devisors
+        int c = 1;                      // Needed for finding the devisors
+        int devisors_Count = 1;         
+
+        for (int a = 0; a < n; a++) {
+            for (int b = 0; b < m; b++) {
+                d1 = (array[a][b] / 2);
+                //This will count the devisors of the element in the array
+                for(int c = 1; c <= d1; c++) {
+                    if (array[a][b] % c == 0) {
+                        devisors_Count++;
+                    }
+                }
+                //This will change the element to 0 if the devisors count is equal to the number entered by the user
+                if (devisors_Count == d) {
+                    array[a][b] = 0;
+                }
+                devisors_Count = 1;    // This resets the count for the next number in the array
+            }
+        }
+
+
+}
+
+void Clear(int** array) {
 
 }
 
