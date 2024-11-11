@@ -64,10 +64,10 @@ void Transform(int**& array, int n, int m) {
 
         for (int a = 0; a < n; a++) {
             for (int b = 0; b < m; b++) {
-                d1 = (array[a][b] / 2);
+                d1 = abs(array[a][b] / 2);
                 //This will count the devisors of the element in the array
                 for(int c = 1; c <= d1; c++) {
-                    if (array[a][b] % c == 0) {
+                    if (abs(array[a][b] % c) == 0) {
                         devisors_Count++;
                     }
                 }
